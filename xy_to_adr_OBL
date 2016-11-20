@@ -1,0 +1,22 @@
+#!/bin/bash
+# lc ligne de cache
+if [ $# -eq 0 ]
+then
+echo "xy_to_adr"
+echo "usage : xy_to_adr lx ly lc < fichier_indices > fichier_adresse"
+echo "lx, ly tailles en x et y de l'image"
+echo "lc : taille de la ligne de cache (en octet)"
+exit
+fi
+
+export LANG=C
+# lc est la longueur de ligne de cache
+awk -v lx=$1 -v ly=$2 -v lc=$3 '
+{ 
+x=$1+int(lx/2);
+y=$2+int(ly/2);
+lcb=int(lc/2);
+adr=0 /* A compléter selon l équation du sujet */
+printf("0  0x%x\n", adr );
+}
+'

@@ -1,0 +1,42 @@
+#!/bin/bash
+export LANG=C
+export PATH=$PATH:./
+
+rm rotation
+make rotation 
+# charge la bibliothèque de scripts
+source script_lib
+# Lance une expérience en faisant varier la taille des tuiles par
+# pas de 8, jusqu'à une taille 128
+
+t_pas=8              # incrément de la taille des tuiles
+t_max=12           # taille max de tuile 
+alpha=0              # angle de rotation 
+nom_expe=expe_simple #nom de l'expérience
+# Les paramètres du cache à donner à Dinero (dinero --help pour aide)
+
+# Pour lancer une simulation pour une rotation d' angle alpha
+# avec des tailles de tuile de 0 a t_maximum, avec un pas de t_pas
+# > experience_run nom_experience alpha t_maximum  t_pas  [arguments_dinero]
+# les arguments dinero sont optionnels. 
+
+dinero_arg_simple="-l1-dbsize 64  -l1-dsize 32k -l1-dassoc 64"
+# Lance l'expérience avec le schéma d'adressage canonique
+#experience_run $nom_expe $alpha   $t_max $t_pas  $dinero_arg_simple
+# et maintenant avec le schéma d'adressage modifié (voir sujet)
+# les index sont convertis en adresse selon deux façons:
+# * Si le nom de l'expérience NE contient PAS par OBL,
+#   alors les indexs sont transformés en adresses par le script xy_to_adr
+# * Si le nom de l'expérience contient OBL,
+#   alors les indexs sont transformés en adresses par le script xy_to_adr_OBL
+experience_run ${nom_expe} $alpha $ $t_max  $t_pas  dinero_arg_simple
+#experience_run ${nom_expe}_OBL  $alpha $ $t_max  $t_pas $dinero_arg_simple
+# Les résultats d'une expérience sont dans la courbe "res/$nom_expe.pdf"
+alpha=0.52              # angle de rotation 
+nom_expe=expe_simple_1 #nom de l'expérience
+experience_run ${nom_expe} $alpha $ $t_max  $t_pas $dinero_arg_simple
+#experience_run ${nom_expe}_OBL $alpha $ $t_max  $t_pas $dinero_arg_simple
+
+pushd rapport
+pdflatex  rapport.tex
+popd

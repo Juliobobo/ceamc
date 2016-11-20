@@ -1,0 +1,15 @@
+#!/bin/bash
+export LANG=C
+if [ $# -eq 0 ]
+then
+echo "xy_to_adr"
+echo "usage : xy_to_adr lx ly < liste_indice > liste_adresse"
+echo "lx, ly tailles en x et y de l'image"
+exit
+fi
+
+awk -v lx=$1 -v ly=$2  '
+{ 
+printf(" 0 0x%x\n", $1+int(lx/2)+lx*($2+int(ly/2)));
+}
+'

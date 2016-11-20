@@ -1,0 +1,20 @@
+#!/bin/bash
+export LANG=C
+export PATH=$PATH:./
+
+rm rotation
+make NO_FILE=true rotation 
+
+source script_lib
+no_rot=0
+
+t_inc=8
+t_max=128
+ex=1
+
+# Pour lancer une simulation pour une rotation d' angle alpha
+# avec des tailles de tuile de 0 a t_maximum, avec un pas de t_pas
+# > experience_run nom_experience alpha t_maximum  t_pas  [arguments_dinero]
+# les arguments dinero sont optionnels. 
+
+# pour plus de details, voir script_simple

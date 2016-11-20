@@ -1,0 +1,5 @@
+ifdef NO_FILE
+CFLAGS+=-DNO_FILE
+endif
+
+LDFLAGS+=-lm
