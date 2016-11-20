@@ -16,12 +16,14 @@ Les mécanismes de mémoire cache se base sur le principe de localité qui dit q
 \end{itemize}
 
     \subsection{Question 2 :}
-L'avantage des caches associatif par rapport aux caches à correspondance direct est qu'ik permet une grande souplesse et une efficacité pour gérer les lignes de manière optimale en terme de succès d’accès. \\
+    
+L'avantage des caches associatifs par rapport aux caches à correspondance direct est qu'ik permet une grande souplesse et une efficacité pour gérer les lignes de manière optimale en terme de succès d’accès. \\
 
 Et l'inconvénient de ce type de cache que l'on doit au pire parcourir toutes les lignes du cache pour savoir si la
 ligne cherchée s’y trouve ou pas.
     
     \subsection{Question 3 :}
+    
 Les trois types de défaut de cache qui peuvent se produire dans un cache associatif sont : \\
 
 \begin{itemize}
@@ -32,8 +34,81 @@ Les trois types de défaut de cache qui peuvent se produire dans un cache associ
     
     \subsection{Question 4 :}
 
+Un processeur PPC 440 dispose d’un cache dont les caract´eristiques sont les suivantes : \\
 
+\begin{center}
+    \begin{tabular}{|l|c|r|}
+      \hline
+      Taille & 32 KOctet \\
+      \hline
+      Ligne & 64 Octet\\
+      Associatif par groupe & 64 voies \\
+      \hline
+    \end{tabular}
+\end{center}
+\\
+
+Le nombre de lignes d’un cache correspond simplement à sa capacité divisée par la longueur de ligne. Autrement dit il y a 512 lignes (32 Ko = 32 768 et $ \frac{32768}{64} = 512 $).
+
+Le nombre de groupes associatifs dans le cache correspond au nombre de lignes divisé par le degré d’associativité du cache. Autrement dit il y a 8 groupes associatifs ( $ \frac{512}{64} = 8 $).
+
+    \subsection{Question 5 :}
+Les bits de poids fort forment une étiquette (tag) qui sont utilisés pour calculer le numéro du groupe.
+numéro de l’ensemble = 
+numéro de bloc (=adresse) modulo  le nombre  d’ensembles dans le cache
+
+
+\section{Performance d’une hiérarchie mémoire}
+    \subsection{Contexte de l’étude}
+        \subsubsection{Question 6 :}
+        
+        \subsubsection{Question 7 :}
+        
+Le programme rotation\_original effectue une rotation d’image 2D car dans la boucle de calcul de la fonction main() il y a :
+\begin{center}
+    \[x' = icos(\alpha ) - jsin(\alpha )\]
+    \[y' = isin(\alpha ) + jcos(\alpha )\]
+\end{center}
+\\
+Ceci sont les coordonnées (x', y') d'un point qui subit une rotation d'angle $\alpha$ dans le plan (i, j).
+
+        \subsection{Question 8 :}
+        
+\section{Installation}
+    \subsection{ Installation du simulateur de cache}
+        \subsubsection{Question 9 :}
+        
+        \subsubsection{Question 10 :}
+        
+        \subsubsection{Question 11 :}
+        
+        \subsubsection{Question 12 :}
+        
+\section{ Mesure de l’effet de la taille des tuiles}
+    \subsection{Effet de l’angle de rotation sur les performances}
+        \subsubsection{Question 13 :}
+        
+        \subsubsection{Question 14 :}
+        
+\subsection{Influence des paramètres du cache}
+    \subsection{Question 15 :}
+        
+\subsection{Impact du schéma d’adressage}
+    \subsection{Question 16 :}
+        
+    \subsection{Question 17 :}
+        
+    \subsection{Question 18 :}
+        
+\section{Transformation de boucle}
+    \subsection{Question 19 :}
     
+    \subsection{Question 20 :}
+        
+\section{Hiérarchie mémoire}
+    \subsection{Question 21 :}
+    
+    \subsection{Question 22 :}
 \section{Mesures}
 \begin{figure}[htbp]
   \centering
