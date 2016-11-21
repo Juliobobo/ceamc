@@ -40,7 +40,7 @@ class Cache:
 
         fw=open(self.dta, 'w')
         for d in ref:
-            fw.write('0 ' + str(d) + '\n')
+            fw.write('0 ' + hex(int(d)).upper() + '\n')
         fw.close()
         ## run dinero and get result
         os.system('d4-7/dineroIV ' + dinarg)
