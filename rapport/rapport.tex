@@ -2,6 +2,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[utf8]{inputenc}
 \usepackage[francais]{babel}
+\usepackage{graphicx}
 \begin{document}
 \title{Rapport de TP SoC/Cache}
 \author{Binôme:}
@@ -96,7 +97,15 @@ Ceci sont les coordonnées (x', y') d'un point qui subit une rotation d'angle
 $\alpha$ dans le plan (i, j).
 
         \subsection{Question 8 :}
-        
+On retrouve la martrice de rotation d'angle $\alpha$ : 
+\begin{pmatrix}
+   cos(\alpha) & -sin(\alpha) \\
+   sin(\alpha) & cos(\alpha)
+\end{pmatrix}
+
+tx et ty représente la taille d'une tuile selon l'axe x et l'axe y. \\
+
+
 \section{Installation}
     \subsection{ Installation du simulateur de cache}
         \subsubsection{Question 9 :}
