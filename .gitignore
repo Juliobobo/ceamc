@@ -2,3 +2,8 @@ d4-7/*.o
 rapport/*.aux
 rapport/*.log
 rapport/*.pdf
+.*.swp
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+
