@@ -1,8 +1,11 @@
 \documentclass[11pt,a4paper]{article}
-\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{graphicx}
 \usepackage[utf8]{inputenc}
+\usepackage{verbatim}
 \usepackage[francais]{babel}
 \usepackage{graphicx}
+\usepackage{minted}
 \begin{document}
 \title{Rapport de TP SoC/Cache}
 \author{Binôme:}
@@ -92,78 +95,106 @@ boucle de calcul de la fonction main() il y a :
     \[x' = icos(\alpha ) - jsin(\alpha )\]
     \[y' = isin(\alpha ) + jcos(\alpha )\]
 \end{center}
-\\
+~\\
 Ceci sont les coordonnées (x', y') d'un point qui subit une rotation d'angle
-$\alpha$ dans le plan (i, j).
+\alpha dans le plan (i, j).
 
         \subsection{Question 8 :}
-On retrouve la martrice de rotation d'angle $\alpha$ : 
+		On retrouve (dans le code) la matrice de rotation d'angle {\alpha} :\\
+\\
 \begin{pmatrix}
    cos(\alpha) & -sin(\alpha) \\
-   sin(\alpha) & cos(\alpha)
+   sin(\alpha) & cos(\alpha)\\
 \end{pmatrix}
+\\
+\\
+De plus, les images obtenues sont équivilentes :
+
+\begin{figure}[h]
+	\centering
+	%\includegraphics[scale=0.5]{../img/Q8_output.pgm}
+	\includegraphics[scale=0.5]{../img/Q8_output_orig.pgm}
+	%\caption{The three founders. From left to right : the CTO, the
+	%CEO, the COO}
+	%\label{founders}
+\end{figure}
+
 
 tx et ty représente la taille d'une tuile selon l'axe x et l'axe y. \\
 
 
 \section{Installation}
-    \subsection{ Installation du simulateur de cache}
-        \subsubsection{Question 9 :}
-        
-        \subsubsection{Question 10 :}
-        
-        \subsubsection{Question 11 :}
-        
-        \subsubsection{Question 12 :}
-        
-\section{ Mesure de l’effet de la taille des tuiles}
-    \subsection{Effet de l’angle de rotation sur les performances}
-        \subsubsection{Question 13 :}
-        
-        \subsubsection{Question 14 :}
-        
-\subsection{Influence des paramètres du cache}
-    \subsection{Question 15 :}
-        
-\subsection{Impact du schéma d’adressage}
-    \subsection{Question 16 :}
-        
-    \subsection{Question 17 :}
-        
-    \subsection{Question 18 :}
-        
-\section{Transformation de boucle}
-    \subsection{Question 19 :}
-    
-    \subsection{Question 20 :}
-        
-\section{Hiérarchie mémoire}
-    \subsection{Question 21 :}
-    
-    \subsection{Question 22 :}
-\section{Mesures}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\linewidth]{../res/expe_simple}
-  \caption{Alpha=0}
-  \label{fig:0}
-\end{figure}
- \begin{figure}[htbp]
-   \centering
-   \includegraphics[width=0.9\linewidth]{../res/expe_simple_OBL}
-   \caption{Alpha=0}
-   \label{fig:1}
- \end{figure}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.9\linewidth]{../res/expe_simple_1}
-  \caption{Alpha=0}
-  \label{fig:0}
-\end{figure}
- \begin{figure}[htbp]
-   \centering
-   \includegraphics[width=0.9\linewidth]{../res/expe_simple_1_OBL}
-   \caption{Alpha=0}
-   \label{fig:1}
- \end{figure}
-\end{document}
+\subsection{ Installation du simulateur de cache}
+\subsubsection{Question 9 :}
+
+~
+\begin{verbatim}
+./dineroIV -informat d -l1-dbsize 64 -l1-dsize 16k -l1-dassoc 2
+\end{verbatim}
+dineroIV : Programme appelé.\\
+informat : Sélectionne le format de la trace d'entrée. d : traditional din\\
+l1-dbsize 6 : Fixe la taille d'une ligne de cache à 64 octets.\\
+l1-dsize 16 : Fixe la taille du cache à 16 ko.\\
+l1-dassoc : Fixe l'associativité du cache à 2.\\
+	%_fin\end{lstlisting} : signifie que la suite de caractères ``_fin'' indique la fin de la
+	%saisie.\\
+
+
+
+	\subsubsection{Question 10 :}
+
+	\subsubsection{Question 11 :}
+
+	\subsubsection{Question 12 :}
+
+	\section{ Mesure de l’effet de la taille des tuiles}
+	\subsection{Effet de l’angle de rotation sur les performances}
+	\subsubsection{Question 13 :}
+
+	\subsubsection{Question 14 :}
+
+	\subsection{Influence des paramètres du cache}
+	\subsection{Question 15 :}
+
+	\subsection{Impact du schéma d’adressage}
+	\subsection{Question 16 :}
+
+	\subsection{Question 17 :}
+
+	\subsection{Question 18 :}
+
+	\section{Transformation de boucle}
+	\subsection{Question 19 :}
+
+	\subsection{Question 20 :}
+
+	\section{Hiérarchie mémoire}
+	\subsection{Question 21 :}
+
+	\subsection{Question 22 :}
+	\section{Mesures}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.9\linewidth]{../res/expe_simple}
+		\caption{Alpha=0}
+		\label{fig:0}
+	\end{figure}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.9\linewidth]{../res/expe_simple_OBL}
+		\caption{Alpha=0}
+		\label{fig:1}
+	\end{figure}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.9\linewidth]{../res/expe_simple_1}
+		\caption{Alpha=0}
+		\label{fig:0}
+	\end{figure}
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[width=0.9\linewidth]{../res/expe_simple_1_OBL}
+		\caption{Alpha=0}
+		\label{fig:1}
+	\end{figure}
+	\end{document}
