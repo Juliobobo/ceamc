@@ -128,7 +128,7 @@ class Rotate_run:
     def run(self):
         rotate_arg=' '.join(map(str,self.array_size + self.tile_size))+ ' ' +\
         str(self.alpha)
-        os.system('rotation ' + rotate_arg + ' > res/idx')
+        os.system('./rotation ' + rotate_arg + ' > res/idx')
         ## launch rotate rotate_arg > self.fr
         ## read idx
         self.idx=[]
