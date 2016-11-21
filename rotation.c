@@ -17,8 +17,8 @@ unsigned char*read_img(char nm[], int lx, int ly)
   sscanf(tmp, "%d %d", &lxi, &lyi);
   if ((lx!=lxi) || (ly!=lyi))
 	{
-	  printf("Erreur : lx et ly ne correspondent pas à la taille de l'image %s\n", tmp);
-	  exit(0);
+	  //printf("Erreur : lx et ly ne correspondent pas à la taille de l'image %s\n", tmp);
+      // exit(0);
 	
 	}
   do
@@ -65,7 +65,8 @@ int main( int argc, char **argv )
   m[0][1]=-sin(alpha);
   m[1][0]=sin(alpha);
   m[1][1]=cos(alpha);
-
+  /* L'image est centre en lx/2, ly/2 */
+  /* Le coin en haut à gauche est -lx/2, -ly/2 */
   /* Boucle de calcul */
   for(i=-lx/2; i< lx/2; i+= tx)
 	for(j=-ly/2; j< ly/2; j+= ty)
@@ -75,8 +76,8 @@ int main( int argc, char **argv )
 			x=m[0][0]*(i+ti)+m[0][1]*(j+tj);
 			y=m[1][0]*(i+ti)+m[1][1]*(j+tj);
 			/* si le pixel (x,y) est dans l'image d'entree */
-			if (x>-lx/2 && x<lx/2 &&
-				y>-ly/2 && y<ly/2)
+			if (x>=-lx/2 && x<lx/2 &&
+				y>=-ly/2 && y<ly/2)
 			  {
 				// img_out(i+ti,j+tj)=img_in(x,y) , image centree en lx/2; ly/2
 				img_out[lx/2+i+ti+lx*(ly/2+j+tj)]=img_in[lx/2+x+lx*(ly/2+y)];
