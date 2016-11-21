@@ -12,7 +12,7 @@ expe.cache.line_size=64
 expe.cache.size=16*1024
 expe.cache.associativity=64
 
-expe.array_size=[16,16]
+expe.array_size=[512,512]
 expe.tile_max=8
 expe.tile_step=4
 # lance experience avec angle de rotation 0
